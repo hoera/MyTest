@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Cycle</title>
+</head>
+
+<body>
+
+
+<div id="1_id"    style="top: 45; left: 550; position: absolute;"><img src='1_cycle.jpg'></div>
+<div id="2_id"    style="top: 60; left: 635; position: absolute;"><img src='2_cycle.jpg'></div>
+<div id="3_id"    style="top: 95; left: 720; position: absolute;"><img src='3_cycle.jpg'></div>
+<div id="4_id"    style="top: 155; left: 780; position: absolute;"><img src='4_cycle.jpg'></div>
+<div id="5_id"    style="top: 225; left: 820; position: absolute;"><img src='5_cycle.jpg'></div>
+<div id="6_id"    style="top: 300; left: 835; position: absolute;"><img src='6_cycle.jpg'></div>
+<div id="7_id"    style="top: 380; left: 820; position: absolute;"><img src='7_cycle.jpg'></div>
+<div id="8_id"    style="top: 450; left: 780; position: absolute;"><img src='8_cycle.jpg'></div>
+<div id="9_id"    style="top: 515; left: 720; position: absolute;"><img src='9_cycle.jpg'></div>
+<div id="10_id"    style="top: 550; left: 640; position: absolute;"><img src='10_cycle.jpg'></div>
+<div id="11_id"    style="top: 565; left: 550; position: absolute;"><img src='11_cycle.jpg'></div>
+<div id="12_id"    style="top: 550; left: 460; position: absolute;"><img src='12_cycle.jpg'></div>
+<div id="13_id"    style="top: 510; left: 380; position: absolute;"><img src='13_cycle.jpg'></div>
+<div id="14_id"    style="top: 450; left: 315; position: absolute;"><img src='14_cycle.jpg'></div>
+<div id="15_id"    style="top: 380; left: 275; position: absolute;"><img src='15_cycle.jpg'></div>
+<div id="16_id"    style="top: 300; left: 265; position: absolute;"><img src='16_cycle.jpg'></div>
+<div id="17_id"    style="top: 225; left: 280; position: absolute;"><img src='17_cycle.jpg'></div>
+<div id="18_id"    style="top: 150; left: 315; position: absolute;"><img src='18_cycle.jpg'></div>
+<div id="19_id"    style="top: 95; left: 380; position: absolute;"><img src='19_cycle.jpg'></div>
+<div id="20_id"    style="top: 55; left: 460; position: absolute;"><img src='20_cycle.jpg'></div>
+
+
+<script type="text/javascript"><!--
+
+function doit(indx, startingSpeed, rateOfIncrease, endingSpeed, numberOfImages)
+{
+	var indx1 = indx + '_id';
+	indx = indx + 1;
+	//alert(numberOfImages);
+	if(indx > numberOfImages)
+		indx = 1;
+
+	if(startingSpeed > endingSpeed)
+		startingSpeed = startingSpeed * rateOfIncrease;
+
+	var indx2 = indx + '_id';
+
+	document.getElementById(indx1).style.display = 'none';
+	document.getElementById(indx2).style.display = 'block';
+	window.setTimeout("doit(" + indx + "," + startingSpeed + "," + rateOfIncrease+ "," + endingSpeed+ "," + numberOfImages +")",startingSpeed);
+}
+
+function hideAll()
+{	for(i = 2; i <=20; i++)
+		document.getElementById(i + '_id').style.display = 'none';
+}
+
+hideAll();
+
+//   You can modify the following 4 variables below to customize the program.
+//   See flipcard.html for instructions. Have fun!
+
+var startingSpeed  = 200  ;
+var rateOfIncrease = 0.981  ;
+var endingSpeed =      10  ;
+var numberOfImages =   20  ;
+
+window.setTimeout("doit(1, startingSpeed, rateOfIncrease, endingSpeed, numberOfImages)",startingSpeed);
+
+
+
+// --></script>
+
+
+</body>
+</html>

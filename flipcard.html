@@ -1,0 +1,154 @@
+<html>
+
+<!-- NOTE: See very end of file for instructions on how to customize it -->
+
+<head>
+	<title>Cycle</title>
+	<style type="text/css">
+	.mydiv {
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		width:100px;
+		height:100px;
+		margin-top: -50px; /*set to a negative number 1/2 of your height*/
+		margin-left: -50px; /*set to a negative number 1/2 of your width*/
+
+	}
+
+	</style>
+
+</head>
+
+<body>
+
+Press F11 to return to regular screen. Press back button on browser or close tab or browser to stop.
+
+<div id="1_id" class="mydiv" ><img src='1_cycle.jpg'></div>
+<div id="2_id" class="mydiv" ><img src='2_cycle.jpg'></div>
+<div id="3_id" class="mydiv" ><img src='3_cycle.jpg'></div>
+<div id="4_id" class="mydiv" ><img src='4_cycle.jpg'></div>
+<div id="5_id" class="mydiv" ><img src='5_cycle.jpg'></div>
+<div id="6_id" class="mydiv" ><img src='6_cycle.jpg'></div>
+<div id="7_id" class="mydiv" ><img src='7_cycle.jpg'></div>
+<div id="8_id" class="mydiv" ><img src='8_cycle.jpg'></div>
+<div id="9_id" class="mydiv" ><img src='9_cycle.jpg'></div>
+<div id="10_id" class="mydiv"><img src='10_cycle.jpg'></div>
+<div id="11_id" class="mydiv"><img src='11_cycle.jpg'></div>
+<div id="12_id" class="mydiv"><img src='12_cycle.jpg'></div>
+<div id="13_id" class="mydiv"><img src='13_cycle.jpg'></div>
+<div id="14_id" class="mydiv"><img src='14_cycle.jpg'></div>
+<div id="15_id" class="mydiv"><img src='15_cycle.jpg'></div>
+<div id="16_id" class="mydiv"><img src='16_cycle.jpg'></div>
+<div id="17_id" class="mydiv"><img src='17_cycle.jpg'></div>
+<div id="18_id" class="mydiv"><img src='18_cycle.jpg'></div>
+<div id="19_id" class="mydiv"><img src='19_cycle.jpg'></div>
+<div id="20_id" class="mydiv"><img src='20_cycle.jpg'></div>
+<div id="21_id" class="mydiv"><img src='21_cycle.jpg'></div>
+<div id="22_id" class="mydiv"><img src='22_cycle.jpg'></div>
+<div id="23_id" class="mydiv"><img src='23_cycle.jpg'></div>
+<div id="24_id" class="mydiv"><img src='24_cycle.jpg'></div>
+<div id="25_id" class="mydiv"><img src='25_cycle.jpg'></div>
+<div id="26_id" class="mydiv"><img src='26_cycle.jpg'></div>
+<div id="27_id" class="mydiv"><img src='27_cycle.jpg'></div>
+<div id="28_id" class="mydiv"><img src='28_cycle.jpg'></div>
+<div id="29_id" class="mydiv"><img src='29_cycle.jpg'></div>
+<div id="30_id" class="mydiv"><img src='30_cycle.jpg'></div>
+<div id="31_id" class="mydiv"><img src='31_cycle.jpg'></div>
+<div id="32_id" class="mydiv"><img src='32_cycle.jpg'></div>
+<div id="33_id" class="mydiv"><img src='33_cycle.jpg'></div>
+<div id="34_id" class="mydiv"><img src='34_cycle.jpg'></div>
+<div id="35_id" class="mydiv"><img src='35_cycle.jpg'></div>
+<div id="36_id" class="mydiv"><img src='36_cycle.jpg'></div>
+<div id="37_id" class="mydiv"><img src='37_cycle.jpg'></div>
+<div id="38_id" class="mydiv"><img src='38_cycle.jpg'></div>
+<div id="39_id" class="mydiv"><img src='39_cycle.jpg'></div>
+<div id="40_id" class="mydiv"><img src='40_cycle.jpg'></div>
+
+<audio id="audioPlayer">
+  <source src="click.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<audio id="audioPlayer2">
+  <source src="bigCycle.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<audio id="audioPlayer3">
+  <source src="cycleBrownNoiseNewShort.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+<script type="text/javascript"><!--
+
+function doit(indx, startingSpeed, rateOfIncrease, endingSpeed, numberOfImages, firstTime)
+{
+	var indx1 = indx + '_id';
+	indx = indx + 1;
+	//alert(numberOfImages);
+	if(indx > numberOfImages)
+	{	indx = 1;
+		firstTime = 0;
+	}
+
+	if(startingSpeed > endingSpeed)
+	{	if(startingSpeed == 3000)
+		{	if(firstTime == 0)
+				startingSpeed = 1000;
+			else ;
+		}
+		else
+			startingSpeed = startingSpeed * rateOfIncrease;
+	}
+	var indx2 = indx + '_id';
+
+	audioPlayer3.play();
+
+	if(startingSpeed > 100)	audioPlayer.play();
+	else if(startingSpeed > 98.6) audioPlayer2.play();
+
+	document.getElementById(indx1).style.display = 'none';
+	document.getElementById(indx2).style.display = 'block';
+	window.setTimeout("doit(" + indx + "," + startingSpeed + "," + rateOfIncrease+ "," + endingSpeed+ "," + numberOfImages + "," + firstTime + ")",startingSpeed);
+}
+
+function hideAll()
+{	for(i = 2; i <=40; i++)
+		document.getElementById(i + '_id').style.display = 'none';
+}
+
+hideAll();
+
+//   You can modify the following 4 variables below to customize the program.
+//	  Note: 1 second = 1000 milliseconds (ms)
+//   startingSpeed is the initial rate of speed that the images change in milliseconds.
+//                 it is currently set to 1000 ms.
+//   rateOfDecrease is the rate that the pause between images will decrease. Currently set at 0.981,
+//                 so a starting speed of 1000 ms will decrease to 1000 * 0.981 = 981, 981 * 0.981 = 962 next round,
+//                 944 next round, etc., until it reaches the endingSpeed at which point the images
+//                 will blur depending on your computer speed.
+//				   For the images to speed up at a slower rate increase the number closer to 0.999,
+//                 for faster increase lower the number, eg. 0.900
+//   endingSpeed is the final speed that the images will change. Currently set at 1 ms, so at the end
+//                 the images will blur. Setting endingSpeed to 50 ms, which show 20 images in 1 second.
+//                 Setting endingSpeed 100 ms will show 10 images in 1 second.
+//   numberOfImages is, surprisingly enough, the number of images from 2 through 40.
+//   Please note that the semicolon at the end of the number is a part of the code, so don't delete it.
+//   Once you make the changes, save the file, then refresh your browser, or double-click on the
+//   flipcard.html again. Have fun!
+
+var startingSpeed  = 1000  ;
+var rateOfDecrease = 0.988 ;
+var endingSpeed =       1  ;
+var numberOfImages =   20  ;
+
+window.setTimeout("doit(1, startingSpeed, rateOfDecrease, endingSpeed, numberOfImages)",startingSpeed);
+
+
+// --></script>
+
+
+</body>
+</html>
